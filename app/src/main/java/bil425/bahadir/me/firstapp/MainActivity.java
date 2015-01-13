@@ -4,6 +4,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -12,6 +15,23 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        final TextView txtMail = (TextView) findViewById(R.id.txtMail);
+        final TextView txtMsg = (TextView) findViewById(R.id.txtMessage);
+
+        Button btnSend = (Button) findViewById(R.id.btnSend);
+
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String mail = txtMail.getText().toString();
+
+                txtMsg.setText("Merhaba " + mail);
+            }
+        });
+
+
     }
 
 
@@ -36,4 +56,6 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
